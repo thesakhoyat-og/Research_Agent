@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Agent</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="shell">
+  <div class="header">
+    <div class="badge">
+      <span class="dot"></span>
+      agent · live · groq/compound
+    </div>
+
+    <h1>Research Agent</h1>
+    <p class="sub">Type a topic. Watch the agent search, reason, and summarise.</p>
+  </div>
+
+  <div class="input-row">
+    <input
+      id="topic"
+      type="text"
+      placeholder="e.g. quantum computing, cybersecurity careers, black holes..."
+      autocomplete="off"
+    />
+    <button id="runBtn">Run agent ↗</button>
+  </div>
+
+  <div class="log-wrap">
+    <div class="log-header">
+      <span class="log-title">agent.loop</span>
+      <span class="log-status" id="statusTxt">idle</span>
+    </div>
+
+    <div id="log">
+      <div class="log-empty">— awaiting goal —</div>
+    </div>
+  </div>
+
+  <div class="result-wrap" id="resultWrap">
+    <div class="result-header">✦ final summary</div>
+    <div id="result"></div>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-tabs">
+      <button class="tab-btn active" data-tab="agent">agent loop</button>
+      <button class="tab-btn" data-tab="tools">tools</button>
+      <button class="tab-btn" data-tab="call">api call</button>
+    </div>
+
+    <div class="code-block">
+      <pre id="codeView"></pre>
+    </div>
+
+    <p class="hint">← the actual Python/Groq code powering what you see above</p>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
