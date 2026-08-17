@@ -88,3 +88,7 @@ Research_Agent_Groq/
 4. Add source cards.
 5. Add conversation history.
 6. Add export to Markdown/PDF.
+
+
+## Author
+Md Sakhoyat hossain
