@@ -1,4 +1,6 @@
+# Research Agent — Flask + Groq
 
+A small research-agent web app with the original dark UI, rebuilt from scratch so the browser talks to a Flask backend and the backend talks to Groq.
 
 ## Architecture
 
