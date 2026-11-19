@@ -18,7 +18,7 @@ client = Groq(
     
 )
 
-MODEL = "groq/compound-mini"
+MODEL = "openai/gpt-oss-20b"
 
 
 def object_to_dict(value):
@@ -131,7 +131,8 @@ def research():
                     "role": "system",
                     "content": (
                         "You are a concise research agent. "
-                        "Research first, then summarize the findings clearly. "
+                        "Research first, then summarize the "
+                        "findings clearly. "
                         "Use the available web search tool when current or "
                         "verifiable information is needed."
                     ),
@@ -141,12 +142,11 @@ def research():
                     "content": goal,
                 },
             ],
-            compound_custom={
-                "tools": {
-                    "enabled_tools": ["web_search"]
-                }
-            },
-        )
+            tools=[
+                {"type": "browser_search"}
+            ],
+)
+
 
         message = response.choices[0].message
         final_text = message.content or "No research summary was returned."
